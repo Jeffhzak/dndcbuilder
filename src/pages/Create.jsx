@@ -1,9 +1,12 @@
 import { Button, Divider, Link, List, ListItem, ListSubheader } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, createContext, useContext } from 'react'
 import {Link as RouterLink, Route} from "react-router-dom"
 import CardSelect from '../components/CardSelect'
+import CharStats from './CharStats'
+
+
+export const charContext = createContext({});
 
 export default function Create() {
 
@@ -44,14 +47,14 @@ export default function Create() {
                     </ListSubheader>}>
 
                     <ListItem>
-                    <Link component={RouterLink} to="/create/classes" underline="none">Class
+                    <Link component={RouterLink} to="/create/choice/classes" underline="none">Class
                     </Link>
                     </ListItem>
 
                     <Divider></Divider>
 
                     <ListItem>
-                    <Link component={RouterLink} to="/create/backgrounds" underline="hover">
+                    <Link component={RouterLink} to="/create/choice/backgrounds" underline="hover">
                         Background
                     </Link>
                     </ListItem>
@@ -59,8 +62,16 @@ export default function Create() {
                     <Divider></Divider>
 
                     <ListItem>
-                    <Link component={RouterLink} to="/create/races" underline="hover">
+                    <Link component={RouterLink} to="/create/choice/races" underline="hover">
                         Race
+                    </Link>
+                    </ListItem>
+
+                    <Divider></Divider>
+
+                    <ListItem>
+                    <Link component={RouterLink} to="/create/ability-scores" underline="hover">
+                        Ability Scores
                     </Link>
                     </ListItem>
 
@@ -102,9 +113,17 @@ export default function Create() {
 
                 <Box sx={{display:"flex", flexDirection:"column", gap:"0em, 1em", maxWidth:"60%"}}>
                     <h1>Create.jsx</h1>
-                    <Route path="/create/:apisearch">
+                    <charContext.Provider value={
+                        {characterData,setCharacterData,
+                        }
+                    }>
+                    <Route path="/create/choice/:apisearch">
                         <CardSelect/>
                     </Route>
+                    <Route path="/create/ability-scores">
+                        <CharStats/>
+                    </Route>
+                    </charContext.Provider>
                 </Box>
             </Box>
         </>
