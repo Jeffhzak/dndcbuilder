@@ -1,11 +1,38 @@
 import { Button, Divider, Link, List, ListItem, ListSubheader } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import {Link as RouterLink, Route} from "react-router-dom"
-import ClassSelect from '../components/ClassSelect'
+import CardSelect from '../components/CardSelect'
 
 export default function Create() {
+
+    const [characterData, setCharacterData] = useState({
+        name: "",
+        race: {
+            name: "",
+            features: [],
+        },
+        class: {
+            name: "",
+            features: [],
+        },
+        hit_die: 0,
+        stats: {
+            str: 0,
+            dex: 0,
+            con: 0,
+            int: 0,
+            wis: 0,
+            cha: 0,
+        },
+        proficiencies: {
+            equipment: [],
+            skills:[],
+            saving_throws:[],
+        },
+        starting_equipment: [],        
+    });
 
     return (
         <>
@@ -68,14 +95,15 @@ export default function Create() {
                     TEST
                     </ListItem>
                 </List>
+
                 {/*//! After the sidebar*/}
                 {/*//* After the sidebar*/}
                 {/*//? After the sidebar*/}
 
                 <Box sx={{display:"flex", flexDirection:"column", gap:"0em, 1em", maxWidth:"60%"}}>
                     <h1>Create.jsx</h1>
-                    <Route path="/create/classes">
-                        <ClassSelect/>
+                    <Route path="/create/:apisearch">
+                        <CardSelect/>
                     </Route>
                 </Box>
             </Box>

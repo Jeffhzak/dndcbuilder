@@ -7,6 +7,11 @@ import HideAppBar from "./components/HideAppBar";
 import Landing from "./pages/Landing";
 import Create from "./pages/Create";
 
+
+// const SOME_KEY = import.meta.env.VITE_SOME_KEY;
+
+// console.log(SOME_KEY);
+
 function App() {
   const theme = createTheme({
     palette: {mode:"dark"},
