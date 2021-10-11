@@ -1,6 +1,6 @@
 import React from 'react'
-import BackgroundInfo from './subcomponents/BackgroundInfo';
-import ClassInfo from './subcomponents/ClassInfo';
+import BackgroundInfo from './modals/BackgroundInfo';
+import ClassInfo from './modals/ClassInfo';
 
 export default function ModalForm(props) {
 

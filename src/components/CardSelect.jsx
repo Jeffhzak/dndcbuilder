@@ -13,7 +13,6 @@ import RaceInfo from './modals/RaceInfo';
 export default function CardSelect() {
     const {apisearch} = useParams();
     const history = useHistory();
-    // console.log("apisearch", apisearch)
 
 
     const [cardArray, setCardArray] = useState([]);
@@ -22,7 +21,6 @@ export default function CardSelect() {
         category: "",
         type: "",
     });
-    // const [cardArrayRender, setCardArrayRender] = useState([]);
     const [fetchStatus, setFetchStatus] = useState("");
     const url="https://www.dnd5eapi.co/api/"
     
@@ -31,7 +29,7 @@ export default function CardSelect() {
         let isSubscribed = true;
         const fetchClasses = async () => {
             try {
-                // setFetchStatus("pending");
+                setFetchStatus("pending");
                 const response = await fetch(url+`${apisearch}`)
                 const data = await response.json();
                 setFetchStatus("complete");
@@ -65,17 +63,7 @@ export default function CardSelect() {
             }
         } 
         setOpenModal(modalStatus)
-        
     }
-
-    const closeModal = () => {
-        const modalStatus = {
-            ...openModal,
-            open: false,
-        }
-        setOpenModal(modalStatus);
-    }
-
 
     const cardArrayRender = cardArray?.map((item, index) => {
         return (
