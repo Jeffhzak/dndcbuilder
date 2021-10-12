@@ -81,8 +81,8 @@ export default function CardSelect() {
         <>
             <h1>CardSelect.jsx</h1>
             <ModalForm modalinfo={openModal}/>
-            
-            <Box sx={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"center", gap:"2em 2em"}}>
+
+            <Box sx={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"flex-start", gap:"2em 2em"}}>
                 {fetchStatus === "complete" ? cardArrayRender : <CircularProgress /> }
             
             </Box>
