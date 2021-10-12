@@ -1,4 +1,5 @@
-{/* <Button onClick={handleClick}>{"(?)"}</Button>
+<>
+ <Button onClick={handleClick}>{"(?)"}</Button>
     <Popover id={id} open={open} anchorEl={anchorElement} onClose={handleClose} anchorOrigin={{vertical:"bottom", horizontal: "right"}}>
         <Typography sx={{ p: 2 }}>"Charisma measures your ability to interact effectively with others. It includes such factors as confidence and eloquence, and it can represent a charming or commanding personality."
         </Typography>
@@ -7,4 +8,4 @@
                 <Button variant="contained" sx={{margin:"10px"}} onClick={handleClose}>OK</Button> 
             </div>
     </Popover> 
-    */}
+</>

@@ -121,7 +121,7 @@ export default function CharStats() {
             </TabPanel>
             </Box>
             ) : (
-            <LinearProgress/>
+            <LinearProgress sx={{width:"50%"}}/>
             )}
         </div>
     )

@@ -38,7 +38,7 @@ export default function Create() {
     });
 
     return (
-            <Box sx={{display:"flex", gap:"0em, 1em", width:"120%"}}>
+            <Box sx={{display:"flex", gap:"0em, 1em", width:"100%"}}>
                 
                 {/*//! Sidebar*/}
                 {/*//* Sidebar*/}
@@ -111,8 +111,9 @@ export default function Create() {
                 {/*//? Content Paths */}
                 
 
-                <Box sx={{display:"flex", flexDirection:"column", gap:"0em, 1em", maxWidth:"60%"}}>
+                <Box sx={{display:"flex", flexDirection:"column", gap:"0em, 1em", width:"80%"}}>
                     <h1>Create.jsx</h1>
+                    <Button onClick={()=> {console.log(characterData)}} variant="contained">console log characterData</Button>
                     {/*//! useContext*/}
                     <charContext.Provider value={
                         {characterData,setCharacterData,
