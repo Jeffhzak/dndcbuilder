@@ -1,4 +1,4 @@
-import { Button, FormControl, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material'
+import { Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material'
 import React from 'react'
 import {useEffect, useState, useContext} from "react"
 import ConditionalLink from "../ConditionalLink"
@@ -50,7 +50,7 @@ export default function StandardArray({stats, setStats, statDescriptions, standa
     
         //renders grid of stats
         statGrid.push(
-            <Grid container spacing={1} alignItems="center" key={`${objectStep+"wewewe"}`}>
+            <Grid container spacing={1} alignItems="center" key={`${objectStep+"wewewe"}`} mt="1em">
                 <Grid item xs={2} s={2} md={1} lg={1}>
                     <StatDesc stat={objectStep} statDesc={statDescriptions}/>
                 </Grid>
@@ -68,10 +68,11 @@ export default function StandardArray({stats, setStats, statDescriptions, standa
                 </Grid>
                 <Grid item xs={12} s={12} md={1}>
                     <FormControl sx={{minWidth: "10em"}}>
-                        <InputLabel>Choose One</InputLabel>
-                        <Select disabled={stats[objectStep] > 0 ? true : false} key={objectStep} onChange={handleChange(objectStep)} label={objectStep} id={"id"+objectStep} value="">
+                        <InputLabel>{objectStep}</InputLabel>
+                        <Select disabled={stats[objectStep] > 0 ? true : false} key={objectStep} onChange={handleChange(objectStep)} label={objectStep} id={"id"+objectStep} value="" sx={stats[objectStep] > 0 ? {border: '1px solid #5ac18e'} : {}}> 
                             {selectValues}
                         </Select>
+                        <FormHelperText>Choose One</FormHelperText>
                     </FormControl>
                 </Grid>
             </Grid>

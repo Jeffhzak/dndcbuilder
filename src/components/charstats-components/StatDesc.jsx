@@ -19,8 +19,6 @@ const style = {
   };
 
 export default function StatDesc({stat, statDesc}) {
-    console.log("stat from statDesc:", stat)
-    console.log("statDesc from statDesc:", statDesc[stat])
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -57,7 +55,6 @@ export default function StatDesc({stat, statDesc}) {
                 {assocSkills}
             </Box>
         </Modal>
-           
         </>
     )
 }
