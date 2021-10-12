@@ -3,9 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router';
-import BackgroundInfo from './modals/BackgroundInfo';
-import ClassInfo from './modals/ClassInfo';
-import RaceInfo from './modals/RaceInfo';
+import ModalForm from './cardselect-modals/ModalForm';
 
 
 
@@ -81,14 +79,13 @@ export default function CardSelect() {
 
     return (
         <>
-        {openModal.category === "classes" && (<ClassInfo modalinfo={openModal}/>)}
-        {openModal.category === "backgrounds" && (<BackgroundInfo modalinfo={openModal}/>)}
-        {openModal.category === "races" && (<RaceInfo modalinfo={openModal}/>)}
-        <Box sx={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"center", gap:"2em 2em"}}>
-            {fetchStatus === "complete" ? cardArrayRender : <CircularProgress /> }
-        
-            <p>CardSelect.jsx</p>
-        </Box>
+            <h1>CardSelect.jsx</h1>
+            <ModalForm modalinfo={openModal}/>
+            
+            <Box sx={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"center", gap:"2em 2em"}}>
+                {fetchStatus === "complete" ? cardArrayRender : <CircularProgress /> }
+            
+            </Box>
         </>
     )
 }

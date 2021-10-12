@@ -51,7 +51,7 @@ export default function Create() {
                     </ListSubheader>}>
 
                     <ListItem>
-                    <Link component={RouterLink} to="/create/choice/classes" underline="none">Class
+                    <Link component={RouterLink} to="/create/choice/classes" underline="hover">Class
                     </Link>
                     </ListItem>
 
@@ -82,8 +82,8 @@ export default function Create() {
                     <Divider></Divider>
 
                     <ListItem>
-                    <Link component={RouterLink} to="LOL" underline="always">
-                        {'CHA'}
+                    <Link component={RouterLink} to="LOL" underline="hover">
+                        My Character so far
                     </Link>
                     
                     </ListItem>

@@ -1,8 +1,8 @@
 import { Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material'
 import React from 'react'
-import {useEffect, useState, useContext} from "react"
-import ConditionalLink from "../ConditionalLink"
+import {useContext} from "react"
 import { charContext } from '../../pages/Create'
+import ConditionalLink from "../ConditionalLink"
 import StatDesc from './StatDesc';
 
 
@@ -32,7 +32,7 @@ export default function StandardArray({stats, setStats, statDescriptions, standa
     const handleSubmit = () => {
         if (standardArray.length > 0) return alert("You haven't filled out your stats!")
         setCharacterData(x => x = {...x, stats:stats})
-        console.log(characterData);
+        // console.log(characterData);
         alert("submitted!")
     }
 
@@ -86,7 +86,7 @@ export default function StandardArray({stats, setStats, statDescriptions, standa
             {statGrid}
             <ConditionalLink to="/create" condition={standardArray.length === 0}>
             <Button onClick={handleSubmit} variant="contained" sx={{mt: "2em"}}>Submit</Button>
-            <Button onClick={()=>{console.log(statDescriptions)}}>consolelog statdesc</Button>
+            {/* <Button onClick={()=>{console.log(statDescriptions)}}>consolelog statdesc</Button> */}
             </ConditionalLink>
         </>
     )

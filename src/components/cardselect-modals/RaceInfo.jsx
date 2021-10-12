@@ -35,13 +35,13 @@ const style = {
   pb: 3,
 };
 
-export default function RaceInfo(props) {
+export default function RaceInfo({modalinfo}) {
     return (
         <StyledModal
         aria-labelledby="unstyled-modal-title"
         aria-describedby="unstyled-modal-description"
-        open={props?.modalinfo?.open}
-        onClose={props?.modalinfo?.closeFn}
+        open={modalinfo?.open}
+        onClose={modalinfo?.closeFn}
         BackdropComponent={Backdrop}
       >
         <Box sx={style}>

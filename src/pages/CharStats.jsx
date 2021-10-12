@@ -45,12 +45,12 @@ export default function CharStats() {
     const charData = useContext(charContext)
     const [value, setValue] = useState(0);
     const [statsObjPB, setStatsObjPB] = useState({
-        str: 0,
-        dex: 0,
-        con: 0,
-        int: 0,
-        wis: 0,
-        cha: 0,
+        str: 8,
+        dex: 8,
+        con: 8,
+        int: 8,
+        wis: 8,
+        cha: 8,
     });
     const [statsObjSA, setStatsObjSA] = useState({
         str: 0,
@@ -64,6 +64,8 @@ export default function CharStats() {
     const [statDescriptions, setStatDescriptions] = useState({});
 
     const [standardArray, setStandardArray] = useState([15, 14, 13, 12, 10, 8])
+
+    const [pbScore, setPbScore] = useState(27);
 
     useEffect(() => {
         let isSubscribed = true;
@@ -114,7 +116,7 @@ export default function CharStats() {
                 <StandardArray stats={statsObjSA} setStats={setStatsObjSA} statDescriptions={statDescriptions} standardArray={standardArray} setStandardArray={setStandardArray}/>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <PointBuy stats={statsObjPB} setStats={setStatsObjPB} statDescriptions={statDescriptions}/>
+                <PointBuy stats={statsObjPB} setStats={setStatsObjPB} statDescriptions={statDescriptions} pbScore={pbScore} setPbScore={setPbScore}/>
             </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three

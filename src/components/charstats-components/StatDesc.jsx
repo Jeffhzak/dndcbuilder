@@ -25,14 +25,14 @@ export default function StatDesc({stat, statDesc}) {
     const handleClose = () => setOpen(false);
 
     const statExplanation = statDesc[stat]?.desc.map((arrayStep, index) => {
-        return <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        return <Typography key={`zxczxcv`+`${index}`} id="modal-modal-description" sx={{ mt: 2 }}>
             {arrayStep}
         </Typography>
     })
 
     const assocSkills = statDesc[stat]?.skills.length > 0 ?
     statDesc[stat]?.skills.map((arrayStep, index) => {
-        return <li>{arrayStep.name}</li>
+        return <li key={`${arrayStep.name}`+`${index}`}>{arrayStep.name}</li>
     })
     : <li>None</li>
 

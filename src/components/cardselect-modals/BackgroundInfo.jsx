@@ -1,8 +1,6 @@
-
+import React from 'react'
 import { ModalUnstyled } from '@mui/core'
 import { styled, Box } from '@mui/system';
-
-import React from 'react'
 
 
 const StyledModal = styled(ModalUnstyled)`
@@ -38,13 +36,13 @@ const style = {
 };
 
 
-export default function Classinfo(props) {
-  return (
-      <StyledModal
+export default function BackgroundInfo({modalinfo}) {
+    return (
+        <StyledModal
         aria-labelledby="unstyled-modal-title"
         aria-describedby="unstyled-modal-description"
-        open={props?.modalinfo?.open}
-        onClose={props?.modalinfo?.closeFn}
+        open={modalinfo?.open}
+        onClose={modalinfo?.closeFn}
         BackdropComponent={Backdrop}
       >
         <Box sx={style}>
@@ -52,5 +50,5 @@ export default function Classinfo(props) {
           <p id="unstyled-modal-description">Aliquid amet deserunt earum!</p>
         </Box>
       </StyledModal>
-  );
+    )
 }
