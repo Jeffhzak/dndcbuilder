@@ -4,6 +4,7 @@ import { useState, useEffect, createContext, useContext } from 'react'
 import {Link as RouterLink, Route} from "react-router-dom"
 import CardSelect from '../components/CardSelect'
 import CharStats from './CharStats'
+import CharSheet from './CharSheet'
 
 
 export const charContext = createContext({});
@@ -82,7 +83,7 @@ export default function Create() {
                     <Divider></Divider>
 
                     <ListItem>
-                    <Link component={RouterLink} to="LOL" underline="hover">
+                    <Link component={RouterLink} to="/create/char-sheet" underline="hover">
                         My Character so far
                     </Link>
                     
@@ -124,6 +125,9 @@ export default function Create() {
                     </Route>
                     <Route path="/create/ability-scores">
                         <CharStats/>
+                    </Route>
+                    <Route path="/create/char-sheet">
+                        <CharSheet/>
                     </Route>
                     </charContext.Provider>
                 </Box>

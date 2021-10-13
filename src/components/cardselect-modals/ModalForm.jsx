@@ -7,7 +7,6 @@ export default function ModalForm({modalinfo}) {
 
     const category = modalinfo?.category;
     const type = modalinfo?.type;
-    console.log(category)
 
 
     return (

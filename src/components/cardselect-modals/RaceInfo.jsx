@@ -13,6 +13,7 @@ const StyledModal = styled(ModalUnstyled)`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow:scroll;
 `;
 
 const Backdrop = styled('div')`
