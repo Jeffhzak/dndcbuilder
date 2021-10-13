@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import React from 'react'
 import BackgroundInfo from './BackgroundInfo';
 import ClassInfo from './ClassInfo';

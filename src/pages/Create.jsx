@@ -1,4 +1,4 @@
-import { Button, Divider, Link, List, ListItem, ListSubheader } from '@mui/material'
+import { Button, Divider, Link, List, ListItem, ListSubheader, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import { useState, useEffect, createContext, useContext } from 'react'
 import {Link as RouterLink, Route} from "react-router-dom"
@@ -17,10 +17,7 @@ export default function Create() {
             name: "",
             features: [],
         },
-        class: {
-            name: "",
-            features: [],
-        },
+        class: {},
         hit_die: 0,
         stats: {
             str: 0,
@@ -84,22 +81,9 @@ export default function Create() {
 
                     <ListItem>
                     <Link component={RouterLink} to="/create/char-sheet" underline="hover">
-                        My Character so far
+                        <Typography variant="h6">My Character so far</Typography>
                     </Link>
                     
-                    </ListItem>
-                    
-                    <Divider></Divider>
-
-                    <ListItem>
-                        <Button variant="contained"
-                        color="primary"
-                    component={RouterLink}
-                    to="/inner">ButtonTest</Button>
-                    </ListItem>
-
-                    <ListItem>
-                    TEST
                     </ListItem>
                 </List>
 

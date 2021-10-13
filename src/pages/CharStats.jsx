@@ -109,7 +109,6 @@ export default function CharStats() {
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                 <Tab label="Standard Array" {...allyProps(0)} />
                 <Tab label="Point-Buy" {...allyProps(1)} />
-                <Tab label="Item Three" {...allyProps(2)} />
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
@@ -117,9 +116,6 @@ export default function CharStats() {
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <PointBuy stats={statsObjPB} setStats={setStatsObjPB} statDescriptions={statDescriptions} pbScore={pbScore} setPbScore={setPbScore}/>
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                Item Three
             </TabPanel>
             </Box>
             ) : (
