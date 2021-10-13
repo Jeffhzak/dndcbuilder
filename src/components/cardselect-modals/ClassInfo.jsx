@@ -8,6 +8,8 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { CreateChoiceSelection } from './classModal-components/CreateChoiceSelection';
 import { SubmitDialogBox } from './classModal-components/SubmitDialogBox';
+import { ClassFeatures } from './classModal-components/ClassFeatures';
+import ClassDescripts from './classModal-components/ClassDescripts';
 
 
 const StyledModal = styled(ModalUnstyled)`
@@ -118,7 +120,6 @@ export default function Classinfo({modalinfo}) {
         } catch (error) {
             setFetchStatus("error");
             console.log(error);
-            history.replace("/");
         }      
       }
     fetchClassData();
@@ -127,19 +128,12 @@ export default function Classinfo({modalinfo}) {
 
   const classDescRender = fetchStatus === "complete" ?
   <>
+  <ClassDescripts className={modalinfo.type}/>
   </>
   : <LinearProgress/>
 
   const classFeatureRender = fetchStatus === "complete" ?
-  <>
-    <Typography variant="h6" mt="1em">Hit Points (HP)</Typography>
-    <Divider/>
-    <Typography variant="h7">Hit Dice: 1d{modalData?.hit_die}</Typography>
-    <Typography variant="h7">Hit Points at 1st Level: {modalData?.hit_die} + your Constitution modifier
-    </Typography>
-    <Typography variant="h7">Hit Points at Higher Levels: 1d{modalData?.hit_die} (or {Math.round(modalData?.hit_die / 2 + 0.5)}) + your Constitution modifier per {modalData?.name} level after 1st
-    </Typography>
-  </>
+    <ClassFeatures modalData={modalData}/>
   : <LinearProgress/>
 
   const classOptionRender = fetchStatus === "complete" ?
@@ -178,11 +172,11 @@ export default function Classinfo({modalinfo}) {
 
     <Box sx={style}>
         <h1>ClassInfo.jsx</h1> 
-      <Box sx={rowStyle}>
+      {/* <Box sx={rowStyle}>
         <Button mt="2em" onClick={()=>console.log(modalinfo)}>modalinfo</Button>
         <Button mt="2em" onClick={()=>console.log(modalData)}>data</Button>
         <Button mt="2em" onClick={()=>console.log(choices)}>choices</Button>
-      </Box>
+      </Box> */}
       <Box sx={{...rowStyle, justifyContent:"space-between"}}>
       <h2 id="unstyled-modal-title">{modalData?.name}</h2>
       <Button onClick={tabValue === 2 ? handleSubmitClick : undefined} variant={tabValue === 2 ? "contained" : "outlined"}>{tabValue === 2 ? "Apply this class!" : "Select your Class Options first!"}</Button>
