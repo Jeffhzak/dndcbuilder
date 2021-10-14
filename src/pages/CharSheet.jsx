@@ -63,8 +63,10 @@ export default function CharSheet() {
 
     return (
         <>
-            <h1>CharSheet.jsx</h1>
-            <Typography variant="h4">{playerName}</Typography>
+            {/* <h1>CharSheet.jsx</h1> */}
+            <Box sx={{mt:"2em", mb:"1em"}}>
+                <Typography variant="h4">{playerName}</Typography>
+            </Box>
             <Typography variant="h5">Level 1 {raceName} {className} {raceAncestry}</Typography>
             <Box sx={{...rowStyle, alignItems:"flex-end"}}>
                 <Typography variant="h7">HP at Level 1:</Typography>

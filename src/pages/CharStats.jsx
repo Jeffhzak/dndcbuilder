@@ -100,9 +100,11 @@ export default function CharStats() {
 
     return (
         <div>
-            <h1>CharStats.jsx</h1>
+            {/* <h1>CharStats.jsx</h1>
+            <Button onClick={()=>{console.log(statDescriptions)}}>test</Button> */}
+            <Box sx={{mt:"2em", mb:"1em"}}>
             <Typography>Pick a method to determine your stats:</Typography>
-            <Button onClick={()=>{console.log(statDescriptions)}}>test</Button>
+            </Box>
             {fetchStatus === "complete" ? (
             <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

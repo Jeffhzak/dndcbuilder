@@ -88,11 +88,11 @@ export default function Create() {
                 {/*//? Content Paths */}
                 
 
-                <Box sx={{display:"flex", flexDirection:"column", gap:"0em, 1em", width:"80%"}}>
-                    <h1>Create.jsx</h1>
+                <Box sx={{display:"flex", flexDirection:"column", gap:"0em, 1em", width:"80%", mt:"2em"}}>
+                    {/* <h1>Create.jsx</h1> */}
                     <Typography variant="h6">Pick an option on the left to get started!</Typography>
                     <Divider/>
-                    <Button onClick={()=> {console.log(characterData)}} variant="contained">console log characterData</Button>
+                    {/* <Button onClick={()=> {console.log(characterData)}} variant="contained">console log characterData</Button> */}
                     {/*//! useContext*/}
                     <charContext.Provider value={
                         {characterData,setCharacterData,

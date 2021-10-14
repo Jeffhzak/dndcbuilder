@@ -162,12 +162,12 @@ export default function RaceInfo({modalinfo}) {
       BackdropComponent={Backdrop}
     >
       <Box sx={style}>
-        <h1 id="unstyled-modal-title">RaceInfo.jsx</h1>
+        {/* <h1 id="unstyled-modal-title">RaceInfo.jsx</h1>
         <Box sx={rowStyle}>
         <Button mt="2em" onClick={()=>console.log(modalinfo)}>modalinfo</Button>
         <Button mt="2em" onClick={()=>console.log(raceData)}>data</Button>
         <Button mt="2em" onClick={()=>console.log(choices)}>choices</Button>
-        </Box>
+        </Box> */}
         <Box sx={{...rowStyle, justifyContent:"space-between"}}>
           {raceName}
           <Button variant="contained" onClick={handleSubmit}>Choose this Race</Button>
