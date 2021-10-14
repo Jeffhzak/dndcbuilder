@@ -101,7 +101,7 @@ export default function RaceInfo({modalinfo}) {
             }
             const newRaceData = {...data, featdesc:features}
             isSubscribed ? setRaceData(newRaceData) : console.log("fetch cancelled because of component unmount");
-            isSubscribed ? setChoices(x=> x={...x, [modalinfo?.category]:{...data}}) : console.log("fetch cancelled because of component unmount");
+            isSubscribed ? setChoices(x=> x={...x, [modalinfo?.category]:{...data}, racefeatdesc:features}) : console.log("fetch cancelled because of component unmount");
             setFetchStatus("complete");
             if (response.ok === false) {
             setFetchStatus("error");

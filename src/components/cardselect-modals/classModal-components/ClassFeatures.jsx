@@ -10,7 +10,7 @@ const colStyle = {
 }
 const url = "https://www.dnd5eapi.co"
 
-export const ClassFeatures = ({modalData}) => {
+export const ClassFeatures = ({modalData, choices, setChoices}) => {
     
     const [levelData, setLevelData] = useState([]);
     const [fetchStatus, setFetchStatus] = useState("");
@@ -29,6 +29,7 @@ export const ClassFeatures = ({modalData}) => {
                 const data = await response.json();
                 features.push(data);
             }
+            isSubscribed ? setChoices({...choices, classfeatdesc:features}) : console.log("fetch cancelled because of component unmount");
             isSubscribed ? setLevelData(features) : console.log("fetch cancelled because of component unmount");
             setFetchStatus("complete");
             if (response.ok === false) {

@@ -27,11 +27,12 @@ export default function CharSheet() {
     const {characterData, setCharacterData} = useContext(charContext);
 
     const playerName = characterData?.name;
+    const playerHPAtLevel1 = characterData?.classes?.hit_die;
     const className = characterData?.classes?.name;
     const raceName = characterData?.races?.name;
     const charStats = characterData?.stats;
     const allProficiencies = characterData?.proficiencies;
-
+    const savingProficiencies = characterData?.classes?.saving_throws;
     const raceStatBonus = !!characterData?.races?.ability_bonuses 
     ? characterData?.races?.ability_bonuses 
     : undefined;
@@ -58,6 +59,13 @@ export default function CharSheet() {
             <h1>CharSheet.jsx</h1>
             <Typography variant="h4">{playerName}</Typography>
             <Typography variant="h5">Level 1 {raceName} {className}</Typography>
+            <Box sx={{...rowStyle, alignItems:"flex-end"}}>
+                <Typography variant="h7">HP at Level 1:</Typography>
+                <Divider sx={{m:"0 1em 0 1em"}} orientation="vertical"/>
+                <Typography sx={{color:"lightgreen"}} variant="h5">{playerHPAtLevel1}</Typography>
+                <Divider sx={{m:"0 1em 0 1em"}} orientation="vertical"/>
+                <Typography variant="h7">+ your CON modifier</Typography>
+            </Box>
             <Accordion sx={{ width: '25em', mt:"1em", mb:"1em"}} expanded={expanded === 'panel1'} onChange={handleAccordianChange('panel1')}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -87,9 +95,13 @@ export default function CharSheet() {
             <Divider/>
             <Box sx={{m:"1em"}}>
                 <Typography variant="h5">Proficiencies</Typography>
-                <FancyProficienciesDisplay allProficiencies={allProficiencies}/>
+                <FancyProficienciesDisplay allProficiencies={allProficiencies} savingProficiencies={savingProficiencies}/>
             </Box>
-            <h3>{tempCharTextDump}</h3>
+            <Divider/>
+            <Box sx={{m:"1em"}}>
+                <Typography variant="h5">Features</Typography>
+            </Box>
+            {/* <h3>{tempCharTextDump}</h3> */}
         </>
     )
 }

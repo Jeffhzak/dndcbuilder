@@ -134,7 +134,7 @@ export default function Classinfo({modalinfo}) {
   : <LinearProgress/>
 
   const classFeatureRender = fetchStatus === "complete" ?
-    <ClassFeatures modalData={modalData}/>
+    <ClassFeatures modalData={modalData} choices={choices} setChoices={setChoices}/>
   : <LinearProgress/>
 
   const classOptionRender = fetchStatus === "complete" ?
