@@ -32,7 +32,7 @@ export const FancyProficienciesDisplay = ({allProficiencies, savingProficiencies
     <CreateDefaultBtns inputArray={otherProfs}/>
     </> : undefined;
 
-    const savingProfsRender = savingProficiencies?.length != 0 ? <>
+    const savingProfsRender = savingProficiencies?.length != 0 && !!savingProficiencies ? <>
     <Typography variant="h7">Saving Throws</Typography>
     <CreateDefaultBtns inputArray={savingProficiencies}/>
     </> : undefined;

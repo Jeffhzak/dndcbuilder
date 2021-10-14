@@ -8,6 +8,7 @@ import { charContext } from './Create'
 import { FancyStatDisplay } from '../components/charsheet-components/FancyStatDisplay';
 import { Box } from '@mui/system';
 import { FancyProficienciesDisplay } from '../components/charsheet-components/FancyProficienciesDisplay';
+import { FancyFeaturesDisplay } from '../components/charsheet-components/FancyFeaturesDisplay';
 
 const rowStyle = {
     display: "flex",
@@ -31,15 +32,21 @@ export default function CharSheet() {
     const className = characterData?.classes?.name;
     const raceName = characterData?.races?.name;
     const charStats = characterData?.stats;
-    const allProficiencies = characterData?.proficiencies;
-    const savingProficiencies = characterData?.classes?.saving_throws;
+    
     const raceStatBonus = !!characterData?.races?.ability_bonuses 
     ? characterData?.races?.ability_bonuses 
     : undefined;
-
+    
     const extraStatBonus = !!characterData
     ?.ability_bonus ? characterData?.ability_bonus 
     : undefined;
+
+    const raceAncestry = !!characterData?.trait?.[0]?.name ? `[${characterData?.trait?.[0]?.name}]` : undefined;
+    
+    const allProficiencies = characterData?.proficiencies;
+    const savingProficiencies = characterData?.classes?.saving_throws;
+    const classFeatDescArray = characterData?.classfeatdesc;
+    const raceFeatDescArray = characterData?.racefeatdesc;
 
     const [expanded, setExpanded] = useState(false);
     
@@ -58,7 +65,7 @@ export default function CharSheet() {
         <>
             <h1>CharSheet.jsx</h1>
             <Typography variant="h4">{playerName}</Typography>
-            <Typography variant="h5">Level 1 {raceName} {className}</Typography>
+            <Typography variant="h5">Level 1 {raceName} {className} {raceAncestry}</Typography>
             <Box sx={{...rowStyle, alignItems:"flex-end"}}>
                 <Typography variant="h7">HP at Level 1:</Typography>
                 <Divider sx={{m:"0 1em 0 1em"}} orientation="vertical"/>
@@ -100,6 +107,7 @@ export default function CharSheet() {
             <Divider/>
             <Box sx={{m:"1em"}}>
                 <Typography variant="h5">Features</Typography>
+                <FancyFeaturesDisplay classFeatDescArray={classFeatDescArray} raceFeatDescArray={raceFeatDescArray}/>
             </Box>
             {/* <h3>{tempCharTextDump}</h3> */}
         </>

@@ -66,10 +66,10 @@ export const RaceSubmitBox = ({text, open, handleClose, choices}) => {
                     <Button onClick={handleSubmit}>Yes!</Button>
                     </Link>
                     <Button onClick={handleClose}>No, take me back.</Button>
-                    <Button variant="contained" onClick={()=>{
+                    {/* <Button variant="contained" onClick={()=>{
                         console.log("choices", choices);
                         console.log("characterData", characterData);
-                        }}>log choices</Button>
+                        }}>log choices</Button> */}
                 </Box>
             </Modal>            
         </>
