@@ -14,7 +14,7 @@ export default function SelectToggleButton({data, selectedCount, setSelectedCoun
                 setSelectedCount(x=> x+1);
                 setSelected(x=> x=!x); //* flip state of selected
                 //* check if object has this key, if no create it, if yes add to it.
-                const isKeyInObject = !!choices[type] ? [...choices[type], data] : [data]
+                const isKeyInObject = !!choices?.[type] ? [...choices[type], data] : [data]
                 // console.log(isKeyInObject);
                 const newChoices = {...choices, [type]:isKeyInObject};
                 setChoices(newChoices);
@@ -27,6 +27,8 @@ export default function SelectToggleButton({data, selectedCount, setSelectedCoun
                 setSelected(x=> x=!x); //* flip state of selected
                 //* filter out everything except item to remove
                 const filteredArray = choices[type].filter((arrayStep) => {
+                    console.log("data",data)
+                    console.log("arrayStep",arrayStep)
                     return data != arrayStep
                 })
                 console.log("filteredArray", filteredArray)

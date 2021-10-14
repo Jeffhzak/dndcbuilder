@@ -65,7 +65,7 @@ export default function ClassDescripts({className}) {
 
         <Box sx={rowStyle}>
             <Box sx={{width:"50%"}}>
-                <img src={classDescBlock[className]?.imageSrc} width="auto" height="auto"/>
+                <img src={classDescBlock[className]?.imageSrc} width="auto" height="400vh"/>
             </Box>
             <Box sx={{width:"50%"}}>
                 <Typography variant="h6">{classDescBlock[className]?.desc}</Typography>

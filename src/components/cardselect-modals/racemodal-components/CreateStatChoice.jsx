@@ -13,12 +13,12 @@ const rowStyle = {
   }
 
 
-export const CreateChoiceSelection = ({choiceObject, choices, setChoices}) => {
+export const CreateStatChoice = ({choiceObject, choices, setChoices}) => {
     // console.log("choiceObject",choiceObject)
     // console.log("choices",choices)
 
     const choiceLimit = choiceObject?.choose;
-    const choiceType = choiceObject?.type;
+    const choiceType = "ability_bonus";
     const arrayOfOptions = choiceObject?.from;
 
     const [selectedCount, setSelectedCount] = useState(!!choices?.[choiceType]?.length ? choices?.[choiceType]?.length : 0);
@@ -28,9 +28,14 @@ export const CreateChoiceSelection = ({choiceObject, choices, setChoices}) => {
         <Box>
             {!!choiceObject ? <Typography variant="h7" sx={{m:"1em"}}>(Pick {choiceLimit})</Typography> : undefined}
             <Box sx={rowStyle}>
-            {arrayOfOptions?.map((arrayStep) => {
+            {arrayOfOptions?.map((arrayStep, index) => {
+                const data = {
+                    name: `${arrayStep?.ability_score?.name} + ${arrayStep?.bonus}`,
+                    info: arrayStep, 
+                }
+                // console.log(data);
                 return (
-                <SelectToggleButton key={`${arrayStep?.name}+wsxer`} data={arrayStep} selectedCount={selectedCount} setSelectedCount={setSelectedCount} limitCap={choiceLimit} type={choiceType} choices={choices} setChoices={setChoices}/>
+                <SelectToggleButton key={`${arrayStep?.ability_score.name}+wsxer+${index}`} data={data} selectedCount={selectedCount} setSelectedCount={setSelectedCount} limitCap={choiceLimit} type={choiceType} choices={choices} setChoices={setChoices}/>
                 )
             })}
             </Box>

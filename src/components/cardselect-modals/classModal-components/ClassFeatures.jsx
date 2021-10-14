@@ -44,7 +44,7 @@ export const ClassFeatures = ({modalData}) => {
         fetchLevelData();
         return () => isSubscribed = false;
     }, [])
-    //!
+    
     const featureData = levelData?.map((arrayStep) => {
         const description = arrayStep.desc.map((arrayStep) => {
             return (
