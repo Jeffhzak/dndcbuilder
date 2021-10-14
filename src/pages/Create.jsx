@@ -12,7 +12,7 @@ export const charContext = createContext({});
 export default function Create() {
 
     const [characterData, setCharacterData] = useState({
-        name: "",
+        name: "Placeholder",
         stats: {
             str: 0,
             dex: 0,
@@ -34,7 +34,7 @@ export default function Create() {
                 {/*//* Sidebar*/}
                 {/*//? Sidebar*/}
 
-                <List  sx={{ width: '100%', maxWidth: "15em", bgcolor: '', margin:"3em 0 0 0"}}
+                <List  sx={{ width: '100%', maxWidth: "15em", bgcolor: '', margin:"3em 1em 0 0"}}
                 component="nav" subheader={
                     <ListSubheader component="div" id="nested-list-subheader">
                     You can do these in any order.
@@ -90,6 +90,8 @@ export default function Create() {
 
                 <Box sx={{display:"flex", flexDirection:"column", gap:"0em, 1em", width:"80%"}}>
                     <h1>Create.jsx</h1>
+                    <Typography variant="h6">Pick an option on the left to get started!</Typography>
+                    <Divider/>
                     <Button onClick={()=> {console.log(characterData)}} variant="contained">console log characterData</Button>
                     {/*//! useContext*/}
                     <charContext.Provider value={

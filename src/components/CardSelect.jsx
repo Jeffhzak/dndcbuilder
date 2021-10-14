@@ -25,7 +25,7 @@ export default function CardSelect() {
         type: "",
     });
     const [fetchStatus, setFetchStatus] = useState("");
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = useState(false);
 
 
     const url="https://www.dnd5eapi.co/api/"
@@ -92,7 +92,7 @@ export default function CardSelect() {
     return (
         <>
             <h1>CardSelect.jsx</h1>
-            <Accordion sx={{m:"1em"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <Accordion sx={{mb:"1em"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1bh-content"
