@@ -17,26 +17,25 @@ const style = {
     p: 4,
   };
 
-export const SubmitDialogBox = ({text, open, handleClose, choices}) => {
+export const RaceSubmitBox = ({text, open, handleClose, choices}) => {
 
     const {characterData, setCharacterData} = useContext(charContext);
 
     const handleSubmit = () => {
         //* does it exist in choices? if not don't even define it.
-        const newEquipmentProfs = !!choices?.classes?.proficiencies ? choices?.classes?.proficiencies : undefined;
-
+        const newEquipmentProfs = !!choices.races.starting_proficiencies ? choices?.races?.starting_proficiencies : undefined;
+        
         const existingEquipmentProfs = characterData?.proficiencies?.equipment;
-        console.log(existingEquipmentProfs);
-
+        
         //* was newEquipmentProfs defined? if it wasn't, just preserve old equipmentProfs and don't interact with newEquipmentProfs.
         const combinedEquipmentProfs = !!newEquipmentProfs ? [...existingEquipmentProfs, ...newEquipmentProfs] 
         : [...existingEquipmentProfs]
-
+        
         //* does it exist in choices? if not don't even define it.
         const newOtherProfs = !!choices?.proficiencies ?
         choices?.proficiencies
         : undefined;
-
+        
         const existingOtherProfs = characterData?.proficiencies?.others
 
         //* was newOtherProfs defined? if it wasn't, just preserve old equipmentProfs and don't interact with newEquipmentProfs.
@@ -67,10 +66,10 @@ export const SubmitDialogBox = ({text, open, handleClose, choices}) => {
                     <Button onClick={handleSubmit}>Yes!</Button>
                     </Link>
                     <Button onClick={handleClose}>No, take me back.</Button>
-                    {/* <Button variant="contained" onClick={()=>{
+                    <Button variant="contained" onClick={()=>{
                         console.log("choices", choices);
                         console.log("characterData", characterData);
-                        }}>log choices</Button> */}
+                        }}>log choices</Button>
                 </Box>
             </Modal>            
         </>

@@ -10,6 +10,7 @@ import { CreateChoiceSelection } from './classModal-components/CreateChoiceSelec
 import { SubmitDialogBox } from './classModal-components/SubmitDialogBox';
 import { ClassFeatures } from './classModal-components/ClassFeatures';
 import ClassDescripts from './classModal-components/ClassDescripts';
+import { CreateDefaultBtns } from '../CreateDefaultBtns';
 
 
 const StyledModal = styled(ModalUnstyled)`
@@ -140,13 +141,7 @@ export default function Classinfo({modalinfo}) {
   <>
     <Typography variant="h6" mt="1em"> Gear Proficiencies</Typography>
     <Divider/>
-    <Box sx={rowStyle}>
-      {modalData?.proficiencies?.map((arrayStep) => {
-        return (
-        <Button key={`${arrayStep.name+"yhjkl"}`} color="success" variant="contained" sx={{m:"0.5em"}}>{arrayStep?.name}</Button>
-        )
-      })}
-    </Box>
+    <CreateDefaultBtns inputArray={modalData?.proficiencies}/>
       <Typography variant="h6" mt="1em">Proficiency Choices:</Typography>
       <Divider/>
     <Box sx={rowStyle}>

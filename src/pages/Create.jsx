@@ -13,12 +13,6 @@ export default function Create() {
 
     const [characterData, setCharacterData] = useState({
         name: "",
-        race: {
-            name: "",
-            features: [],
-        },
-        class: {},
-        hit_die: 0,
         stats: {
             str: 0,
             dex: 0,
@@ -29,10 +23,8 @@ export default function Create() {
         },
         proficiencies: {
             equipment: [],
-            skills:[],
-            saving_throws:[],
-        },
-        starting_equipment: [],        
+            others: [],
+        },        
     });
 
     return (

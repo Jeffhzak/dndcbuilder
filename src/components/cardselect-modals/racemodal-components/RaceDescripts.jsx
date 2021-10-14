@@ -15,13 +15,13 @@ export const RaceDescripts = ({raceData}) => {
             <Typography variant="h6" mt="1em">Size: {raceData?.size}</Typography>
             <Divider/>
             <Typography variant="h7">{raceData?.size_description}</Typography>
-            <Typography variant="h6" mt="1em">Age:</Typography>
+            <Typography variant="h6" mt="1em">Age</Typography>
             <Divider/>
             <Typography variant="h7">{raceData?.age}</Typography>
-            <Typography variant="h6" mt="1em">Alignment:</Typography>
+            <Typography variant="h6" mt="1em">Alignment</Typography>
             <Divider/>
             <Typography variant="h7">{raceData?.alignment}</Typography>
-            <Typography variant="h6" mt="1em">Languages:</Typography>
+            <Typography variant="h6" mt="1em">Languages</Typography>
             <Divider/>
             <Typography variant="h7">{raceData?.language_desc}</Typography>
         </Box>

@@ -23,6 +23,7 @@ export const RaceFeatures = ({raceData, choices, setChoices}) => {
     const featDescriptionArray = raceData?.featdesc;
     const abilityBonusArray = raceData?.ability_bonuses;
     const abilityBonusOptions = raceData?.ability_bonus_options;
+    const speed = raceData.speed;
     
     const featuresRender = featDescriptionArray?.map((arrayStep) => {
         const featuresText = arrayStep?.desc?.map((innerStep) => {
@@ -50,7 +51,7 @@ export const RaceFeatures = ({raceData, choices, setChoices}) => {
 
     const abilityBonusOptionsRender = !!abilityBonusOptions ? <>
     <Typography variant="h6" mt="1em">
-        Ability Score bonus options:
+        Ability Score bonus options
     </Typography>
     <Typography variant="h7">This race gets an option to choose which stat to increase.</Typography>
     <Divider/>
@@ -62,12 +63,19 @@ export const RaceFeatures = ({raceData, choices, setChoices}) => {
     return (
         <Box sx={colStyle}>
             <Typography variant="h6" mt="1em">
-                Ability Score Bonuses:
+                Ability Score Bonuses
             </Typography>
             <Box sx={rowStyle}>
                 {abilityBonusRender}
             </Box>
             {abilityBonusOptionsRender}
+            <Typography variant="h6" mt="1em">
+                Speed
+            </Typography>
+            <Divider/>
+            <Typography variant="h7">
+                Your Speed is {speed}.
+            </Typography>
             {featuresRender}
         </Box>
     )

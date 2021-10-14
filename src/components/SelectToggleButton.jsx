@@ -8,7 +8,7 @@ export default function SelectToggleButton({data, selectedCount, setSelectedCoun
 
 
     const handleClick = () => {
-        console.log(selectedCount);        
+        // console.log(selectedCount);        
         if(selectedCount < limitCap) {
             if(selected === false) {
                 setSelectedCount(x=> x+1);
@@ -27,9 +27,7 @@ export default function SelectToggleButton({data, selectedCount, setSelectedCoun
                 setSelected(x=> x=!x); //* flip state of selected
                 //* filter out everything except item to remove
                 const filteredArray = choices[type].filter((arrayStep) => {
-                    console.log("data",data)
-                    console.log("arrayStep",arrayStep)
-                    return data != arrayStep
+                    return data?.name != arrayStep?.name
                 })
                 console.log("filteredArray", filteredArray)
                 const newChoices = {...choices, [type]:filteredArray};

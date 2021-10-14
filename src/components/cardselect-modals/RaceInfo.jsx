@@ -6,6 +6,7 @@ import { Button, CircularProgress, LinearProgress, Tab, Tabs, Typography } from 
 import { RaceDescripts } from './racemodal-components/RaceDescripts';
 import { RaceFeatures } from './racemodal-components/RaceFeatures';
 import { RaceOptions } from './racemodal-components/RaceOptions';
+import { RaceSubmitBox } from './racemodal-components/RaceSubmitBox';
 
 
 const StyledModal = styled(ModalUnstyled)`
@@ -82,6 +83,7 @@ export default function RaceInfo({modalinfo}) {
   const [fetchStatus, setFetchStatus] = useState("");
   const [choices, setChoices] = useState({})
   const [raceData, setRaceData] = useState({})
+  const [submitOpen, setSubmitOpen] = useState(false);
 
     useEffect(() => {
         let isSubscribed = true;
@@ -117,6 +119,15 @@ export default function RaceInfo({modalinfo}) {
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };
+
+  const handleSubmit = () => {
+    setSubmitOpen(true);
+
+  }
+
+  const handleSubmitClose = () => {
+    setSubmitOpen(false);
+  }
 
   const raceName = fetchStatus === "complete" ?
   <h2 id="unstyled-modal-title">{raceData?.name}</h2>
@@ -157,7 +168,10 @@ export default function RaceInfo({modalinfo}) {
         <Button mt="2em" onClick={()=>console.log(raceData)}>data</Button>
         <Button mt="2em" onClick={()=>console.log(choices)}>choices</Button>
         </Box>
-        {raceName}
+        <Box sx={{...rowStyle, justifyContent:"space-between"}}>
+          {raceName}
+          <Button variant="contained" onClick={handleSubmit}>Choose this Race</Button>
+        </Box>
         
         {/* //! Tabs */}
         {/* //? Tabs */}
@@ -181,6 +195,7 @@ export default function RaceInfo({modalinfo}) {
             {raceOptionsRender}
           </TabPanel>
         </Box>
+        <RaceSubmitBox text="Have you completed your options selections?" open={submitOpen} handleClose={handleSubmitClose} choices={choices}/>
       </Box>
     </StyledModal>
   )
